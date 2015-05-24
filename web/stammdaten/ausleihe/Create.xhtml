@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAusleiheTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAusleiheLabel_leihId}" for="leihId" />
+                    <h:inputText id="leihId" value="#{ausleiheController.selected.leihId}" title="#{bundle.CreateAusleiheTitle_leihId}" required="true" requiredMessage="#{bundle.CreateAusleiheRequiredMessage_leihId}"/>
+                    <h:outputLabel value="#{bundle.CreateAusleiheLabel_ausleihDatum}" for="ausleihDatum" />
+                    <h:inputText id="ausleihDatum" value="#{ausleiheController.selected.ausleihDatum}" title="#{bundle.CreateAusleiheTitle_ausleihDatum}" required="true" requiredMessage="#{bundle.CreateAusleiheRequiredMessage_ausleihDatum}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAusleiheLabel_leihRueckgabedatum}" for="leihRueckgabedatum" />
+                    <h:inputText id="leihRueckgabedatum" value="#{ausleiheController.selected.leihRueckgabedatum}" title="#{bundle.CreateAusleiheTitle_leihRueckgabedatum}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAusleiheLabel_verlaengerbar}" for="verlaengerbar" />
+                    <h:inputText id="verlaengerbar" value="#{ausleiheController.selected.verlaengerbar}" title="#{bundle.CreateAusleiheTitle_verlaengerbar}" />
+                    <h:outputLabel value="#{bundle.CreateAusleiheLabel_exemplarId}" for="exemplarId" />
+                    <h:selectOneMenu id="exemplarId" value="#{ausleiheController.selected.exemplarId}" title="#{bundle.CreateAusleiheTitle_exemplarId}" required="true" requiredMessage="#{bundle.CreateAusleiheRequiredMessage_exemplarId}">
+                        <f:selectItems value="#{exemplarController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateAusleiheLabel_kundeId}" for="kundeId" />
+                    <h:selectOneMenu id="kundeId" value="#{ausleiheController.selected.kundeId}" title="#{bundle.CreateAusleiheTitle_kundeId}" required="true" requiredMessage="#{bundle.CreateAusleiheRequiredMessage_kundeId}">
+                        <f:selectItems value="#{kundeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ausleiheController.create}" value="#{bundle.CreateAusleiheSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{ausleiheController.prepareList}" value="#{bundle.CreateAusleiheShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.AusleiheIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

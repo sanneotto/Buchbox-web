@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateExemplarBuchTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+             <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+           <h:form styleClass="jsfcrud_list_form">
+                <c:choose>
+                    <c:when test="${not empty exemplarBean.authorenEintragsList}">
+                        <h:outputText value="ausgewählter Autor"/><br></br>
+                        <h:dataTable value="#{exemplarBean.authorenEintragsList}" var="a">
+                            <h:column>#{a}</h:column>
+                        </h:dataTable> 
+                    </c:when>
+                </c:choose>
+
+                <br /><br />
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+
+                <h:panelGrid columns="3">
+                    <h:outputLabel value="#{bundle.CreateAuthorLabel_authorVorname}" for="authorVorname" />
+                    <h:inputText id="authorVorname" value="#{exemplarBean.authorVorname}" 
+                                 title="#{bundle.CreateAuthorTitle_authorVorname}" 
+                                 required="true" requiredMessage="#{bundle.CreateAuthorRequiredMessage_authorVorname}" />
+                    <h:outputLabel style="color: green" value="#{bundle.CreateAuthorInfo_authorVorname}" for="authorVorname" />
+
+                    <h:outputLabel value="#{bundle.CreateAuthorLabel_authorName}" for="authorName" />
+                    <h:inputText id="authorName" value="#{exemplarBean.authorName}" 
+                                 title="#{bundle.CreateAuthorTitle_authorName}" 
+                                 required="true" requiredMessage="#{bundle.CreateAuthorRequiredMessage_authorName}" />
+                    <h:outputLabel style="color: green" value="#{bundle.CreateAuthorInfo_authorName}" for="authorVorname" />
+
+                    <h:outputLabel value="#{bundle.CreateAuthorLabel_authorGenre}" for="authorGenre" />
+                    <h:inputText id="authorGenre" value="#{exemplarBean.authorGenre}" 
+                                 title="#{bundle.CreateAuthorTitle_authorGenre}" 
+                                 required="true" requiredMessage="#{bundle.CreateAuthorRequiredMessage_authorGenre}" />
+                    <h:outputLabel style="color: green" value="#{bundle.CreateAuthorInfo_authorGenre}" for="authorGenre" />
+
+                    <h:commandButton id="author" value="Autor auswählen" action="#{exemplarBean.addAuthor()}"  />
+                    <h:commandButton value="Auswahl löschen" action="#{exemplarBean.reset()}"  />
+                    <h:outputLabel style="color: green" value="#{bundle.CreateAuthorInfo_newAuthor}" for="author" />
+                    
+                    <h:outputLabel value="#{bundle.FormatLeer}" />
+                    <h:outputLabel value="#{bundle.FormatLeer}" />
+                    <h:outputLabel value="#{bundle.FormatLeer}" />
+
+                    <h:outputLabel value="#{bundle.CreateBuchLabel_buchTitel}" for="buchTitel" />
+                    <h:inputText id="buchTitel" value="#{exemplarBean.buchTitel}" 
+                                 title="#{bundle.CreateBuchTitle_buchTitel}" 
+                                 required="false" requiredMessage="#{bundle.CreateBuchRequiredMessage_buchTitel}" />
+                    <h:outputLabel style="color: green" value="#{bundle.CreateBuchInfo_buchTitel}" for="buchTitel" />
+
+                    <h:outputLabel value="#{bundle.CreateBuchLabel_buchThema}" for="buchThema" />
+                    <h:inputText id="buchThema" value="#{exemplarBean.buchThema}" 
+                                 title="#{bundle.CreateBuchTitle_buchThema}" 
+                                 required="false" requiredMessage="#{bundle.CreateBuchRequiredMessage_buchThema}" />
+                    <h:outputLabel style="color: green" value="#{bundle.CreateBuchInfo_buchThema}" for="buchThema" />
+
+                    <h:outputLabel value="#{bundle.FormatLeer}" />
+                    <h:outputLabel value="#{bundle.FormatLeer}" />
+                    <h:outputLabel value="#{bundle.FormatLeer}" />
+
+                    <h:outputLabel value="#{bundle.CreateVerlagLabel_verlagName}" for="verlagName" />
+                    <h:inputText id="verlagName" value="#{exemplarBean.verlagName}" 
+                                 title="#{bundle.CreateVerlagTitle_verlagName}" 
+                                 required="false" requiredMessage="#{bundle.CreateVerlagRequiredMessage_verlagName}" />
+                    <h:outputLabel style="color: green" value="#{bundle.CreateVerlagInfo_verlagName}" for="verlagName" />
+
+                    <h:outputLabel value="#{bundle.CreateVerlagbuchLabel_verlagbuchIsbn}" for="verlagBuchIsbn" />
+                    <h:inputText id="verlagBuchIsbn" value="#{exemplarBean.verlagbuchIsbn}" 
+                                 title="#{bundle.CreateVerlagbuchTitle_verlagbuchIsbn}" 
+                                 required="false" requiredMessage="#{bundle.CreateVerlagbuchRequiredMessage_verlagbuchIsbn}" />
+                    <h:outputLabel style="color: green" value="#{bundle.CreateVerlagbuchInfo_verlagbuchIsbn}" for="verlagBuchIsbn" />
+
+                    <h:outputLabel value="#{bundle.CreateExemplarLabel_exemplarNr}" for="exemplarNr" />
+                    <h:inputText id="exemplarNr" value="#{exemplarBean.exemplarNr}" 
+                                 title="#{bundle.CreateExemplarTitle_exemplarNr}" 
+                                 required="false" requiredMessage="#{bundle.CreateExemplarRequiredMessage_exemplarNr}" />
+                    <h:outputLabel style="color: green" value="#{bundle.CreateExemplarInfo_exemplarNr}" for="exemplarNr" />            
+                </h:panelGrid>
+                <br /><br />
+                <h:commandButton value="#{bundle.CreateExemplarBuchSave}" action="#{exemplarBean.save()}" /> 
+                <br /><br />
+                <h:link outcome="/stammdaten/IndexStammdaten" value="#{bundle.ListStammdatenLink}"/> 
+                <br /><br />
+                <br /><br />
+                <br /><br />
+                <h:link outcome="/index" value="#{bundle.ExemplarIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
+
+

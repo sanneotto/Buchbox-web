@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditKundeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditKundeLabel_kundeId}" for="kundeId" />
+                    <h:inputText id="kundeId" value="#{kundeController.selected.kundeId}" title="#{bundle.EditKundeTitle_kundeId}" required="true" requiredMessage="#{bundle.EditKundeRequiredMessage_kundeId}"/>
+                    <h:outputLabel value="#{bundle.EditKundeLabel_kundeVorname}" for="kundeVorname" />
+                    <h:inputText id="kundeVorname" value="#{kundeController.selected.kundeVorname}" title="#{bundle.EditKundeTitle_kundeVorname}" required="true" requiredMessage="#{bundle.EditKundeRequiredMessage_kundeVorname}"/>
+                    <h:outputLabel value="#{bundle.EditKundeLabel_kundeName}" for="kundeName" />
+                    <h:inputText id="kundeName" value="#{kundeController.selected.kundeName}" title="#{bundle.EditKundeTitle_kundeName}" required="true" requiredMessage="#{bundle.EditKundeRequiredMessage_kundeName}"/>
+                    <h:outputLabel value="#{bundle.EditKundeLabel_kundePlz}" for="kundePlz" />
+                    <h:inputText id="kundePlz" value="#{kundeController.selected.kundePlz}" title="#{bundle.EditKundeTitle_kundePlz}" required="true" requiredMessage="#{bundle.EditKundeRequiredMessage_kundePlz}"/>
+                    <h:outputLabel value="#{bundle.EditKundeLabel_kundeOrt}" for="kundeOrt" />
+                    <h:inputText id="kundeOrt" value="#{kundeController.selected.kundeOrt}" title="#{bundle.EditKundeTitle_kundeOrt}" required="true" requiredMessage="#{bundle.EditKundeRequiredMessage_kundeOrt}"/>
+                    <h:outputLabel value="#{bundle.EditKundeLabel_kundeStr}" for="kundeStr" />
+                    <h:inputText id="kundeStr" value="#{kundeController.selected.kundeStr}" title="#{bundle.EditKundeTitle_kundeStr}" required="true" requiredMessage="#{bundle.EditKundeRequiredMessage_kundeStr}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{kundeController.update}" value="#{bundle.EditKundeSaveLink}"/>
+                <br />
+                <br />
+                <br />
+                <h:commandLink action="#{kundeController.prepareList}" value="#{bundle.EditKundeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.KundeIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

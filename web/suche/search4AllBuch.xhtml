@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.SearchAll4BuchTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+             <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+           <h:form styleClass="jsfcrud_list_form">
+                <h:outputText value="#{bundle.Search4BuchLabel}" />
+                <h:selectOneMenu value="#{exemplarBean.searchBuch}" onchange="submit()">
+                    <f:selectItems value="#{exemplarBean.alleBuecherMap}" />
+                </h:selectOneMenu>
+                <br /><br />
+                <c:choose>
+                    <c:when test="${not empty exemplarBean.searchBuch}">
+
+                        <h:dataTable value="#{exemplarBean.exemplarTableByBuch}" var="e"  border="1">
+                            <h:column>
+                                <f:facet name="header"> Exemplar-Nr. </f:facet>
+                                    #{e.exemplarnummer}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"> Buchtitel </f:facet>
+                                    #{e.buchtitel}           
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"> Autor </f:facet>
+                                    #{e.author}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"> Verlag </f:facet>
+                                    #{e.verlag} 
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"> ISBN </f:facet>
+                                    #{e.isbn} 
+                            </h:column>
+                        </h:dataTable>
+                    </c:when>
+                </c:choose>
+                <br></br><br></br>
+                <h:link outcome="/index" value="#{bundle.ExemplarIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
+
+

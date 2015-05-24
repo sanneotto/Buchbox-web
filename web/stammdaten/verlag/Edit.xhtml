@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditVerlagTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditVerlagLabel_verlagId}" for="verlagId" />
+                    <h:inputText id="verlagId" value="#{verlagController.selected.verlagId}" title="#{bundle.EditVerlagTitle_verlagId}" required="true" requiredMessage="#{bundle.EditVerlagRequiredMessage_verlagId}"/>
+                    <h:outputLabel value="#{bundle.EditVerlagLabel_verlagName}" for="verlagName" />
+                    <h:inputText id="verlagName" value="#{verlagController.selected.verlagName}" title="#{bundle.EditVerlagTitle_verlagName}" required="true" requiredMessage="#{bundle.EditVerlagRequiredMessage_verlagName}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{verlagController.update}" value="#{bundle.EditVerlagSaveLink}"/>
+                <br />
+                <br />
+                <br />
+                <h:commandLink action="#{verlagController.prepareList}" value="#{bundle.EditVerlagShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.VerlagIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

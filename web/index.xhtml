@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.IndexAdminTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:link outcome="/stammdaten/IndexStammdaten" value="#{bundle.IndexStammdatenTitle}"/>
+                <br /><br />
+                <h:link outcome="/stammdaten/kunde/List" value="#{bundle.IndexKundenTitle}"/>
+                <br /><br />
+                <h:link outcome="/ausleihe/indexAusleihe" value="#{bundle.IndexAusleiheTitle}"/>
+                <br /><br />
+                <h:link outcome="/statistik/indexStatistik" value="#{bundle.IndexStatistikTitle}"/>
+                <br /><br />
+                <br /><br />
+                <h:link outcome="/suche/search4AllAutor" value="#{bundle.SearchAll4AuthorTitle}" />
+                <br /><br />
+                <h:link outcome="/suche/search4AllBuch" value="#{bundle.SearchAll4BuchTitle}" />
+                <br /><br />
+                <h:link outcome="/suche/search4AllVerlag" value="#{bundle.SearchAll4VerlagTitle}" />
+                <br /><br />
+                <br /><br />
+                <h:link outcome="/suche/search4AutorVerfuegbar" value="#{bundle.Search4AuthorTitle}" />
+                <br /><br />
+                <h:link outcome="/suche/search4BuchVerfuegbar" value="#{bundle.Search4BuchTitle}" />                
+                <br /><br />
+                <h:link outcome="/suche/search4VerlagVerfuegbar" value="#{bundle.Search4VerlagTitle}" />
+                <br /><br />
+                <br /><br />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
+
+

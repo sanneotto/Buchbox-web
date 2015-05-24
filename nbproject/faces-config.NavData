@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="stammdaten/verlag/View.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="suche/search4AllVerlag.xhtml" x="1650" y="600" zoom="true"/>
+        <Node id="statistik/bestandVerfuegbar.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="stammdaten/verlagbuch/Edit.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="stammdaten/kunde/View.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="suche/search4VerlagVerfuegbar.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="stammdaten/ausleihe/Create.xhtml" x="650" y="1200" zoom="true"/>
+        <Node id="stammdaten/author/List.xhtml" x="650" y="900" zoom="true"/>
+        <Node id="stammdaten/author/Create.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="stammdaten/buch/List.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="stammdaten/verlagbuch/View.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="stammdaten/kunde/Create.xhtml" x="1150" y="900" zoom="true"/>
+        <Node id="stammdaten/exemplar/View.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="stammdaten/buch/View.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="stammdaten/buchauthor/View.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="stammdaten/author/Edit.xhtml" x="2650" y="150" zoom="true"/>
+        <Node id="stammdaten/genre/List.xhtml" x="1150" y="750" zoom="true"/>
+        <Node id="stammdaten/buch/Edit.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="stammdaten/exemplar/Create.xhtml" x="900" y="1050" zoom="true"/>
+        <Node id="stammdaten/verlagbuch/Create.xhtml" x="400" y="1200" zoom="true"/>
+        <Node id="stammdaten/ausleihe/List.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="stammdaten/CreateNewBuch.xhtml" x="150" y="1350" zoom="true"/>
+        <Node id="suche/search4AllAutor.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="stammdaten/verlag/Create.xhtml" x="400" y="1350" zoom="true"/>
+        <Node id="stammdaten/ausleihe/Edit.xhtml" x="2400" y="150" zoom="true"/>
+        <Node id="suche/search4AllBuch.xhtml" x="400" y="1050" zoom="true"/>
+        <Node id="stammdaten/buchauthor/Edit.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="stammdaten/verlag/List.xhtml" x="1900" y="300" zoom="true"/>
+        <Node id="ausleihe/leihschein.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="ausleihe/indexAusleihe.xhtml" x="2150" y="300" zoom="true"/>
+        <Node id="stammdaten/kunde/List.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="stammdaten/genre/View.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="stammdaten/genre/Create.xhtml" x="150" y="1200" zoom="true"/>
+        <Node id="ausleihe/bestandAusgeliehen.xhtml" x="900" y="750" zoom="true"/>
+        <Node id="stammdaten/kunde/Edit.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="template.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="ausleihe/rueckgabe.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="stammdaten/verlagbuch/List.xhtml" x="150" y="1500" zoom="true"/>
+        <Node id="stammdaten/exemplar/Edit.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="stammdaten/buch/Create.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="stammdaten/buchauthor/Create.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="suche/search4AutorVerfuegbar.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="statistik/indexStatistik.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="stammdaten/genre/Edit.xhtml" x="1400" y="750" zoom="true"/>
+        <Node id="stammdaten/verlag/Edit.xhtml" x="650" y="1050" zoom="true"/>
+        <Node id="stammdaten/exemplar/List.xhtml" x="1400" y="600" zoom="true"/>
+        <Node id="stammdaten/CreateNewExemplar.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="stammdaten/author/View.xhtml" x="900" y="900" zoom="true"/>
+        <Node id="suche/search4BuchVerfuegbar.xhtml" x="1900" y="450" zoom="true"/>
+        <Node id="suche/search4AllBuchtitel.xhtml" x="1650" y="450" zoom="true"/>
+        <Node id="stammdaten/ausleihe/View.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="index.xhtml" x="2150" y="150" zoom="true"/>
+        <Node id="statistik/buchBestand.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="ausleihe/rueckgabe_1.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="stammdaten/buchauthor/List.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="stammdaten/IndexStammdaten.xhtml" x="150" y="300" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

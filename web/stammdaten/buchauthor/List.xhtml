@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListBuchauthorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListBuchauthorEmpty}" rendered="#{buchauthorController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{buchauthorController.items.rowCount > 0}">
+                    <h:outputText value="#{buchauthorController.pagination.pageFirstItem + 1}..#{buchauthorController.pagination.pageLastItem + 1}/#{buchauthorController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{buchauthorController.previous}" value="#{bundle.Previous} #{buchauthorController.pagination.pageSize}" rendered="#{buchauthorController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{buchauthorController.next}" value="#{bundle.Next} #{buchauthorController.pagination.pageSize}" rendered="#{buchauthorController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{buchauthorController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBuchauthorTitle_buchauthorId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.buchauthorId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBuchauthorTitle_authorId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.authorId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBuchauthorTitle_buchId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.buchId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                             <h:commandLink action="#{buchauthorController.prepareEdit}" value="#{bundle.ListBuchauthorEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{buchauthorController.destroy}" value="#{bundle.ListBuchauthorDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{buchauthorController.prepareCreate}" value="#{bundle.ListBuchauthorCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/stammdaten/IndexStammdaten" value="#{bundle.ListStammdatenLink}"/> 
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListBuchauthorIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

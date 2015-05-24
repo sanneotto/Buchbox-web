@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.IndexStammdatenTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:link outcome="/stammdaten/genre/List" value="#{bundle.ShowAllGenreItems}"/>
+                <br /><br />
+                <h:link outcome="/stammdaten/author/List" value="#{bundle.ShowAllAuthorItems}"/>
+                <br /><br />
+                <h:link outcome="/stammdaten/buch/List" value="#{bundle.ShowAllBuchItems}"/>
+                <br /><br />
+                <h:link outcome="/stammdaten/verlag/List" value="#{bundle.ShowAllVerlagItems}"/>
+                <br /><br /><br />
+                <h:link outcome="/stammdaten/CreateNewBuch" value="#{bundle.CreateNewBuch}"/>
+                <br /><br />
+                <h:link outcome="/stammdaten/CreateNewExemplar" value="#{bundle.CreateNewExemplar}"/>
+                <br /><br />
+                <br /><br />
+                <br /><br />
+                <h:link outcome="/index" value="#{bundle.AuthorIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
+
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateBuchauthorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateBuchauthorLabel_buchauthorId}" for="buchauthorId" />
+                    <h:inputText id="buchauthorId" value="#{buchauthorController.selected.buchauthorId}" title="#{bundle.CreateBuchauthorTitle_buchauthorId}" required="true" requiredMessage="#{bundle.CreateBuchauthorRequiredMessage_buchauthorId}"/>
+                    <h:outputLabel value="#{bundle.CreateBuchauthorLabel_authorId}" for="authorId" />
+                    <h:selectOneMenu id="authorId" value="#{buchauthorController.selected.authorId}" title="#{bundle.CreateBuchauthorTitle_authorId}" required="true" requiredMessage="#{bundle.CreateBuchauthorRequiredMessage_authorId}">
+                        <f:selectItems value="#{authorController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateBuchauthorLabel_buchId}" for="buchId" />
+                    <h:selectOneMenu id="buchId" value="#{buchauthorController.selected.buchId}" title="#{bundle.CreateBuchauthorTitle_buchId}" required="true" requiredMessage="#{bundle.CreateBuchauthorRequiredMessage_buchId}">
+                        <f:selectItems value="#{buchController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{buchauthorController.create}" value="#{bundle.CreateBuchauthorSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{buchauthorController.prepareList}" value="#{bundle.CreateBuchauthorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateBuchauthorIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

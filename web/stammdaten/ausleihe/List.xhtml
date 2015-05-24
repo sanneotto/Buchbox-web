@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAusleiheTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAusleiheEmpty}" rendered="#{ausleiheController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{ausleiheController.items.rowCount > 0}">
+                    <h:outputText value="#{ausleiheController.pagination.pageFirstItem + 1}..#{ausleiheController.pagination.pageLastItem + 1}/#{ausleiheController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{ausleiheController.previous}" value="#{bundle.Previous} #{ausleiheController.pagination.pageSize}" rendered="#{ausleiheController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{ausleiheController.next}" value="#{bundle.Next} #{ausleiheController.pagination.pageSize}" rendered="#{ausleiheController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{ausleiheController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAusleiheTitle_leihId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.leihId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAusleiheTitle_ausleihDatum}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ausleihDatum}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAusleiheTitle_leihRueckgabedatum}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.leihRueckgabedatum}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAusleiheTitle_verlaengerbar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.verlaengerbar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAusleiheTitle_exemplarId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.exemplarId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAusleiheTitle_kundeId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.kundeId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{ausleiheController.prepareEdit}" value="#{bundle.ListAusleiheEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{ausleiheController.destroy}" value="#{bundle.ListAusleiheDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{ausleiheController.prepareCreate}" value="#{bundle.ListAusleiheCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.AusleiheIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
